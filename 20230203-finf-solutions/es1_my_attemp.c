@@ -63,17 +63,21 @@ short f(int* a, int length) {
    not_dec=1;
    not_cre=2;
    neg=0;
+   pos_sum=0;
    int sum=0;
    for (int i=0; i<length; i++){
         if (i<length-1){
             if (a[i+1]<a[i]) not_dec=0;
-            if (a[i+1]<a[i]) not_cre=0;
+            if (a[i+1]>a[i]) not_cre=0;
         }
         if (a[i]<0) neg=4;
         sum+= a[i];
-    if (pos_sum>0) pos_sum=8; 
+    
    }
-   printf (" riultato del controllo: %d", ((not_dec|not_cre)|(neg|pos_sum)));
+   if (sum>0) pos_sum=8; 
+   result=((not_dec|not_cre)|(neg|pos_sum));
+   printf (" riultato del controllo: %d", result);
+   return result;
    }
 // STUDENT-SOLUTION-END
 
